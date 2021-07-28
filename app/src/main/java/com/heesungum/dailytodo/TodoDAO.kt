@@ -12,5 +12,5 @@ interface TodoDAO {
     fun getTodoList(): LiveData<List<Todo>>
 
     @Insert
-    fun insertTodo(todo: Todo)
+    suspend fun insertTodo(todo: Todo)
 }
