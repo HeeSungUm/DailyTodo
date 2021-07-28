@@ -15,7 +15,7 @@ class DateChangedReceiver: BroadcastReceiver() {
         val dateFormat = "yyyy/mm/dd"
         today.value = SimpleDateFormat(dateFormat, Locale.KOREA).format(calender.time)
     }
-    fun getDate(): MutableLiveData<String>{
+    fun getToday(): MutableLiveData<String>{
         val calender: Calendar = Calendar.getInstance()
         val dateFormat = "yyyy/mm/dd"
         today.value = SimpleDateFormat(dateFormat, Locale.KOREA).format(calender.time)
