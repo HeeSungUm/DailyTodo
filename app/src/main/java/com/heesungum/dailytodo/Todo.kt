@@ -19,7 +19,11 @@ data class Todo (
     var createdDate:Long,
 
     @ColumnInfo(name = "times")
-    var times:Long
+    var times:Long,
+
+    @ColumnInfo(name = "isChecked")
+    var isChecked:Boolean
+
 ){
-    constructor(): this(null, "", "", -1, 0)
+    constructor(): this(null, "", "", -1, 0, false)
 }
