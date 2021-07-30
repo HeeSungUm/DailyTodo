@@ -9,20 +9,22 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class TodoViewModel (application: Application): AndroidViewModel(application) {
-    private val repository: TodoRepository = TodoRepository(application)
-    private val todos: LiveData<List<Todo>> = repository.getTodos()
-    private val today: MutableLiveData<String> = repository.getToday()
+    private val _today: MutableLiveData<String> = MutableLiveData()
+    val today: LiveData<String>
+        get() = _today
 
-    fun insert(todo: Todo) = viewModelScope.launch(Dispatchers.IO) {
-        repository.insert(todo)
+    private val repository: TodoRepository = TodoRepository(application)
+    val todos: LiveData<List<Todo>> = repository.getTodos()
+
+
+    fun insertTodo(title: String) = viewModelScope.launch(Dispatchers.IO) {
+        if (title != ""){
+            repository.insert(Todo(title = title))
+        }
     }
 
-    fun getTodos(): LiveData<List<Todo>> = todos
-
-    fun getToday(): MutableLiveData<String> = today
-
-    fun setToday(today: MutableLiveData<String>) {
-        repository.setToday(today)
+    fun setToday(today: LiveData<String>){
+        _today.value = today.value
     }
 }
 
