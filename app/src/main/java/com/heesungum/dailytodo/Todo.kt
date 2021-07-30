@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "Todo")
-data class Todo (
+data class Todo(
     @PrimaryKey(autoGenerate = true)
     var id: Long?,
 
@@ -15,15 +15,19 @@ data class Todo (
     @ColumnInfo(name = "description")
     var description: String,
 
-    @ColumnInfo(name = "createdDate")
-    var createdDate:Long,
+    @ColumnInfo(name = "createdDate", defaultValue = "CURRENT_TIMESTAMP")
+    var createdDate: Long,
 
-    @ColumnInfo(name = "times")
-    var times:Long,
+    @ColumnInfo(name = "Date", defaultValue = "")
+    var Date: String,
 
-    @ColumnInfo(name = "isChecked")
-    var isChecked:Boolean
+    @ColumnInfo(name = "times", defaultValue = "0")
+    var times: Long,
 
-){
-    constructor(): this(null, "", "", -1, 0, false)
+    @ColumnInfo(name = "isChecked", defaultValue = "false")
+    var isChecked: Boolean
+
+) {
+    constructor() : this(null, "", "", -1, "",0, false)
+    constructor(title: String) : this(null, title, "", -1, "",0, false)
 }
