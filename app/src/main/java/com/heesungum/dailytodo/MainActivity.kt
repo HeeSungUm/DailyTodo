@@ -70,5 +70,16 @@ class MainActivity : AppCompatActivity() {
         mBinding = null
         super.onDestroy()
     }
+    fun onAddBtnClick(){
+        Log.e(TAG, "onAddBtnClick: ")
+        val dialog = AddDialogFragment()
+        this.supportFragmentManager.let {
+            dialog.show(
+                it,
+                "dialog"
+            )
+        }
+
+    }
 }
 
