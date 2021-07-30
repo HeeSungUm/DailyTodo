@@ -1,9 +1,11 @@
 package com.heesungum.dailytodo
 
 import android.content.Context
+import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
+@Database(version = 1, entities = [Todo::class])
 abstract class TodoDatabase: RoomDatabase() {
     abstract fun todoDao(): TodoDAO
 
