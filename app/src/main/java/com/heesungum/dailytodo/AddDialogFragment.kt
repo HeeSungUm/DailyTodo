@@ -21,6 +21,7 @@ class AddDialogFragment: DialogFragment() {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.dialog_add, container, false)
         todoViewModel = ViewModelProvider(requireActivity()).get(TodoViewModel::class.java)
         mBinding!!.viewModel = todoViewModel
+        mBinding!!.activity = this
         return binding.root
     }
 }

@@ -1,5 +1,6 @@
 package com.heesungum.dailytodo
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
@@ -81,5 +82,16 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+    fun onLongClick(todo: Todo){
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage("Delete todo?")
+            .setNegativeButton("NO") {_, _ ->}
+            .setPositiveButton("YES") {_, _ ->
+                todoViewModel.deleteTodo(todo)
+            }
+        builder.show()
+    }
+
 }
 

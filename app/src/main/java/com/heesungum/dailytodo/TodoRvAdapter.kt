@@ -14,6 +14,7 @@ class TodoRvAdapter(private val context: Context): RecyclerView.Adapter<TodoRvAd
             binding.todo = todo
             binding.todoTitle.text = todo.title
             binding.todoCheckbox.isChecked = todo.isChecked
+            binding.activity = context as MainActivity
         }
     }
 
