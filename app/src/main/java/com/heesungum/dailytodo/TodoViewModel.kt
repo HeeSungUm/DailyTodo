@@ -17,10 +17,14 @@ class TodoViewModel (application: Application): AndroidViewModel(application) {
     val todos: LiveData<List<Todo>> = repository.getTodos()
 
 
-    fun insertTodo(title: String) = viewModelScope.launch(Dispatchers.IO) {
+    fun insertTodo(title: String, dialog: AddDialogFragment) = viewModelScope.launch(Dispatchers.IO) {
         if (title != ""){
             repository.insert(Todo(title = title))
+            dialog.dismiss()
         }
+    }
+    fun deleteTodo(todo: Todo) = viewModelScope.launch(Dispatchers.IO){
+        repository.delete(todo)
     }
 
     fun setToday(today: LiveData<String>){
