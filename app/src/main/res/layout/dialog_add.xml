@@ -4,6 +4,9 @@
         <variable
             name="viewModel"
             type="com.heesungum.dailytodo.TodoViewModel" />
+        <variable
+            name="activity"
+            type="com.heesungum.dailytodo.AddDialogFragment" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -48,7 +51,7 @@
             android:textSize="18sp"
             android:layout_marginEnd="32dp"
             android:padding="4dp"
-            android:onClick="@{_->viewModel.insertTodo(dialogAddEt.getText().toString())}"
+            android:onClick="@{_->viewModel.insertTodo(dialogAddEt.getText().toString(), activity)}"
             app:layout_constraintTop_toBottomOf="@id/dialog_textField"
             app:layout_constraintTop_toTopOf="@id/dialog_tv_negative"
             app:layout_constraintEnd_toStartOf="@id/dialog_tv_negative"/>
@@ -64,7 +67,8 @@
             android:layout_marginEnd="16dp"
             app:layout_constraintTop_toBottomOf="@id/dialog_textField"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            android:onClick="@{_ -> activity.dismiss()}"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
