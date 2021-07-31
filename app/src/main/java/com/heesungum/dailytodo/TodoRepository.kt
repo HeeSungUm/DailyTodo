@@ -13,6 +13,9 @@ class TodoRepository(application: Application) {
     suspend fun insert(todo:Todo){
         todoDAO.insertTodo(todo)
     }
+    suspend fun delete(todo:Todo){
+        todoDAO.delete(todo)
+    }
 
     fun getTodos(): LiveData<List<Todo>> = todos
 
