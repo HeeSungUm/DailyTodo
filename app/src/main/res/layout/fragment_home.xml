@@ -68,7 +68,7 @@
             android:fontFamily="@font/notosans_bold"
             app:layout_constraintStart_toStartOf="@id/home_tv_date"
             app:layout_constraintTop_toBottomOf="@id/home_tv_date"
-            android:text="총 개수  N" />
+            android:text="@{@string/todo_total(viewModel.todos.size)}" />
 
         <TextView
             android:id="@+id/home_tv_done"
