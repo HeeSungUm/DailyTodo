@@ -30,5 +30,12 @@ class TodoViewModel (application: Application): AndroidViewModel(application) {
     fun setToday(today: LiveData<String>){
         _today.value = today.value
     }
+
+    fun getTodoDoneCount(){
+        for (i in todos.value!!){
+
+        }
+    }
+
 }
 

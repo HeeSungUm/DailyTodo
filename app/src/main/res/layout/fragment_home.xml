@@ -68,7 +68,8 @@
             android:fontFamily="@font/notosans_bold"
             app:layout_constraintStart_toStartOf="@id/home_tv_date"
             app:layout_constraintTop_toBottomOf="@id/home_tv_date"
-            android:text="@{@string/todo_total(viewModel.todos.size)}" />
+            android:text="@{@string/todo_total(viewModel.todos.size)}"
+            tools:text="총 개수 N"/>
 
         <TextView
             android:id="@+id/home_tv_done"
@@ -78,7 +79,8 @@
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@id/home_tv_date"
             app:layout_constraintTop_toBottomOf="@id/home_tv_total"
-            android:text="완료 N" />
+            android:text="@{@string/todo_done(viewModel.getTodoDoneCount())}"
+            tools:text="완료 N"/>
 
         <TextView
             android:id="@+id/home_tv_remain"
@@ -88,7 +90,8 @@
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@id/home_tv_date"
             app:layout_constraintTop_toBottomOf="@id/home_tv_done"
-            android:text="남은개수 N" />
+            tools:text="남은개수 N"
+            android:text="@{@string/todo_done(viewModel.todos.size - viewModel.getTodoDoneCount())}"/>
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="0dp"
