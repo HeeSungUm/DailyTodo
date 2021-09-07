@@ -2,7 +2,6 @@ package com.heesungum.dailytodo
 
 import android.app.Application
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 
 class TodoRepository(application: Application) {
 
@@ -15,6 +14,9 @@ class TodoRepository(application: Application) {
     }
     suspend fun delete(todo:Todo){
         todoDAO.delete(todo)
+    }
+    suspend fun updateAllFalse(){
+        todoDAO.updateTodoAllFalse()
     }
 
     fun getTodos(): LiveData<List<Todo>> = todos

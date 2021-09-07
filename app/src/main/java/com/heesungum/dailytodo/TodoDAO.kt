@@ -14,4 +14,11 @@ interface TodoDAO {
 
     @Delete
     suspend fun delete(todo:Todo)
+
+    @Query(
+        "select * from Todo" +
+                "update Todo set isChecked =:False" +
+                "where id =: Todo.id"
+    )
+    suspend fun updateTodoAllFalse()
 }
